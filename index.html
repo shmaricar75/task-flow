@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow | Intelligent Task Management Platform</title>
+  <meta name="description" content="TaskFlow is a modern, high-performance task management application designed to organize chaos, prioritize goals, and accelerate team productivity." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Notification -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <span class="announcement-tag">NEW</span>
+      <span class="announcement-text">TaskFlow Early Access Beta is now open! Reserve your spot today.</span>
+      <a href="#contact" class="announcement-link">Join Waitlist &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="header" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="TaskFlow Home">
+        <span class="logo-symbol">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </span>
+        <span class="logo-text">TaskFlow</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-cta-wrapper">
+          <a href="#contact" class="btn btn-primary btn-sm">Get Early Access</a>
+        </div>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle Button -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME / HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>The Future of Task Management</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Organize Chaos.<br />
+            <span class="gradient-text">Master Your Workflow.</span><br />
+            Achieve More.
+          </h1>
+          
+          <p class="hero-description">
+            TaskFlow bridges the gap between ambitious planning and daily execution. Experience friction-free task tracking, intelligent priority sorting, and team collaboration that keeps everyone in sync before writing a single line of backend code.
+          </p>
+          
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary btn-lg">
+              <span>Request Early Access</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#demo-preview" class="btn btn-secondary btn-lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Try Interactive Demo</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics / Social Proof -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">40%</span>
+              <span class="stat-label">Faster Completion</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">12k+</span>
+              <span class="stat-label">Beta Signups</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">99.8%</span>
+              <span class="stat-label">Satisfaction Rate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Task Demo Widget (Live UI Mockup) -->
+        <div class="hero-preview" id="demo-preview">
+          <div class="task-widget glass-card">
+            <div class="widget-header">
+              <div class="widget-traffic-lights">
+                <span class="light red"></span>
+                <span class="light yellow"></span>
+                <span class="light green"></span>
+              </div>
+              <div class="widget-title">
+                <span class="widget-icon">⚡</span>
+                <span>My Priority Board &mdash; Today</span>
+              </div>
+              <div class="widget-tag">Interactive Preview</div>
+            </div>
+
+            <!-- Progress Tracker -->
+            <div class="progress-section">
+              <div class="progress-info">
+                <span>Daily Sprint Progress</span>
+                <span class="progress-percentage" id="progressPercent">67%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="progressFill" style="width: 67%;"></div>
+              </div>
+            </div>
+
+            <!-- Task Controls -->
+            <div class="task-filters">
+              <button class="filter-btn active" data-filter="all">All (<span id="countAll">3</span>)</button>
+              <button class="filter-btn" data-filter="pending">Active (<span id="countPending">1</span>)</button>
+              <button class="filter-btn" data-filter="completed">Done (<span id="countCompleted">2</span>)</button>
+            </div>
+
+            <!-- Quick Add Task Input -->
+            <form class="quick-add-form" id="quickAddForm">
+              <input 
+                type="text" 
+                id="quickTaskInput" 
+                placeholder="Try typing a new task & press enter..." 
+                autocomplete="off"
+                aria-label="Add new task"
+              />
+              <button type="submit" class="quick-add-btn" aria-label="Add task button">+</button>
+            </form>
+
+            <!-- Task Items List -->
+            <ul class="task-list" id="taskList">
+              <li class="task-item completed" data-id="1">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" class="task-checkbox" checked />
+                  <span class="custom-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span class="task-title">Finalize Task Manager Landing Page UI</span>
+                </label>
+                <div class="task-meta">
+                  <span class="badge badge-high">High</span>
+                  <span class="task-time">09:30 AM</span>
+                </div>
+              </li>
+
+              <li class="task-item completed" data-id="2">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" class="task-checkbox" checked />
+                  <span class="custom-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span class="task-title">Review product requirements with client</span>
+                </label>
+                <div class="task-meta">
+                  <span class="badge badge-medium">Medium</span>
+                  <span class="task-time">11:00 AM</span>
+                </div>
+              </li>
+
+              <li class="task-item" data-id="3">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" class="task-checkbox" />
+                  <span class="custom-checkbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span class="task-title">Deploy live static site to GitHub Pages</span>
+                </label>
+                <div class="task-meta">
+                  <span class="badge badge-urgent">Urgent</span>
+                  <span class="task-time">02:30 PM</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="widget-hint">
+              <span class="hint-icon">💡</span>
+              <span>Click any checkbox above to test the real-time progress calculation!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">POWERFUL CAPABILITIES</div>
+          <h2 class="section-title">Designed for Focus. Built for Velocity.</h2>
+          <p class="section-subtitle">
+            Say goodbye to cluttered to-do apps with endless submenus. TaskFlow combines intuitive design with cutting-edge workflows to keep you in flow state.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper icon-indigo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="feature-title">Smart Priority Matrix</h3>
+            <p class="feature-desc">
+              Automatically sort and visualize tasks by urgency and importance with an intelligent Eisenhower matrix view so you always tackle what matters first.
+            </p>
+            <ul class="feature-highlights">
+              <li>Urgency & impact tags</li>
+              <li>Dynamic deadline warnings</li>
+            </ul>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper icon-purple">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+                <line x1="15" y1="3" x2="15" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Kanban & List Hybrid Views</h3>
+            <p class="feature-desc">
+              Switch effortlessly between minimalist checklist views and visual Kanban swimlanes. Adapt your board to fit your personal thinking style.
+            </p>
+            <ul class="feature-highlights">
+              <li>Drag-and-drop workflow stages</li>
+              <li>Custom status columns</li>
+            </ul>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper icon-emerald">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-title">Integrated Focus Timer</h3>
+            <p class="feature-desc">
+              Built-in Pomodoro cycles and distraction-free deep work modes allow you to link dedicated focus sessions directly to your active task.
+            </p>
+            <ul class="feature-highlights">
+              <li>25/5 min Pomodoro intervals</li>
+              <li>Ambient focus sound generator</li>
+            </ul>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper icon-amber">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Seamless Team Collaboration</h3>
+            <p class="feature-desc">
+              Assign action items, leave context-rich comments, and share project spaces with colleagues or clients in one unified real-time dashboard.
+            </p>
+            <ul class="feature-highlights">
+              <li>Role-based access permissions</li>
+              <li>Real-time multi-user sync</li>
+            </ul>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper icon-cyan">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Productivity Insights</h3>
+            <p class="feature-desc">
+              Gain clear insights into where your time actually goes. View weekly velocity trends, completion rates, and estimated vs. actual time tracking.
+            </p>
+            <ul class="feature-highlights">
+              <li>Automated weekly recap reports</li>
+              <li>Sprint velocity benchmarks</li>
+            </ul>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper icon-rose">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Offline-First & Instant Sync</h3>
+            <p class="feature-desc">
+              Keep working even on a plane or when your connection drops. Changes are cached locally and synchronized seamlessly once you reconnect.
+            </p>
+            <ul class="feature-highlights">
+              <li>Zero latency interaction</li>
+              <li>Conflict-free data replication</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">STREAMLINED WORKFLOW</div>
+          <h2 class="section-title">How TaskFlow Accelerates Your Day</h2>
+          <p class="section-subtitle">
+            Three simple steps between having a chaotic inbox and closing out your day with zero unhandled tasks.
+          </p>
+        </div>
+
+        <div class="workflow-steps">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3>Capture Rapidly</h3>
+              <p>Type tasks instantly using natural language shortcuts (e.g. "Review proposal tomorrow at 3pm"). TaskFlow parses tags, dates, and priorities on the fly.</p>
+            </div>
+          </div>
+
+          <div class="step-arrow">&rarr;</div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3>Prioritize Intelligently</h3>
+              <p>Let TaskFlow highlight your top 3 daily non-negotiables. Eliminate cognitive fatigue and protect your most creative morning hours.</p>
+            </div>
+          </div>
+
+          <div class="step-arrow">&rarr;</div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3>Execute & Celebrate</h3>
+              <p>Check off milestones, review daily velocity metrics, and enjoy effortless peace of mind knowing tomorrow's priorities are already lined up.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & EARLY ACCESS SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <!-- Contact Info & Pitch -->
+          <div class="contact-info">
+            <div class="section-badge">JOIN THE WAITLIST</div>
+            <h2 class="contact-title">Be Part of the First Wave of TaskFlow Beta Users</h2>
+            <p class="contact-description">
+              We are finalizing our core features before opening public availability. Join our VIP early access list to receive exclusive product updates, shape roadmap decisions, and get 6 months of TaskFlow Pro completely free.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <span class="detail-label">Direct Inquiries</span>
+                  <p class="detail-val">hello@taskflow-app.io</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <span class="detail-label">Response Commitment</span>
+                  <p class="detail-val">Average reply under 4 hours</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <span class="detail-label">Headquarters</span>
+                  <p class="detail-val">Singapore / Remote Distributed</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="faq-accordion">
+              <h3 class="faq-heading">Frequently Asked Questions</h3>
+              
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span>When is TaskFlow officially launching?</span>
+                  <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>Private beta invites are sent out weekly. Public general release is scheduled for Q1 with cross-platform web, desktop, and mobile companions.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span>Will there be a free tier?</span>
+                  <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>Yes! TaskFlow will always provide a generous free-forever tier for individual users, with optional premium upgrades for advanced team analytics.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span>Can I import tasks from Todoist or Notion?</span>
+                  <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>Absolutely. One-click migration tools for Todoist, Trello, Asana, and CSV files will be available from day one.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact / Early Access Form -->
+          <div class="contact-form-wrapper glass-card">
+            <h3 class="form-title">Request Early Access & Inquire</h3>
+            <p class="form-subtitle">Fill in the form below to secure your beta invite.</p>
+
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="required">*</span></label>
+                <input 
+                  type="text" 
+                  id="fullName" 
+                  name="fullName" 
+                  placeholder="e.g. Alex Morgan" 
+                  required 
+                />
+                <span class="field-error" id="nameError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Work or Personal Email <span class="required">*</span></label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  placeholder="e.g. alex@company.com" 
+                  required 
+                />
+                <span class="field-error" id="emailError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="role">Primary Use Case</label>
+                <select id="role" name="role">
+                  <option value="personal">Individual / Freelancer Productivity</option>
+                  <option value="startup">Startup & Agile Team Workflows</option>
+                  <option value="enterprise">Department / Enterprise Project Management</option>
+                  <option value="other">Student / Academic Organization</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">What is your #1 task management frustration? <span class="required">*</span></label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="4" 
+                  placeholder="Tell us what features you want to see most..." 
+                  required
+                ></textarea>
+                <span class="field-error" id="messageError"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                <span>Submit Request</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+
+            <!-- Success Toast / Confirmation Notification -->
+            <div class="toast-message" id="toastMessage" role="alert" aria-live="assertive">
+              <span class="toast-icon">🎉</span>
+              <div>
+                <strong>Thank you for requesting early access!</strong>
+                <p>We've reserved your spot. Watch your inbox for your beta invite link.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#home" class="brand-logo">
+          <span class="logo-symbol">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </span>
+          <span class="logo-text">TaskFlow</span>
+        </a>
+        <p class="footer-tagline">
+          The smart, minimalist task manager designed to make work flow effortlessly. Built for modern creators, builders, and teams.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Product</h4>
+          <ul>
+            <li><a href="#features">Task Prioritization</a></li>
+            <li><a href="#features">Kanban Boards</a></li>
+            <li><a href="#features">Focus Timer</a></li>
+            <li><a href="#features">Analytics</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Connect</h4>
+          <ul>
+            <li><a href="https://github.com/shmaricar75" target="_blank" rel="noopener noreferrer">GitHub Profile</a></li>
+            <li><a href="#contact">Contact Support</a></li>
+            <li><a href="#contact">Request Demo</a></li>
+            <li><a href="#contact">Beta Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 TaskFlow. All rights reserved. Designed with Vibe Coding for Basic Web Design.</p>
+        <p class="footer-meta">GitHub Pages Ready &bull; Responsive Design</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
